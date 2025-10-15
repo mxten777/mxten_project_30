@@ -263,7 +263,7 @@ const TestimonialsSection: React.FC = () => {
                       transition={{ delay: 0.6, type: "spring" }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <PremiumBadge variant="secondary" size="lg" className="bg-white/20 backdrop-blur-sm">
+                      <PremiumBadge variant="primary" size="lg" className="bg-white/20 backdrop-blur-sm">
                         <div className="flex items-center space-x-2">
                           <Sparkles className="w-4 h-4" />
                           <span className="font-bold">{TESTIMONIALS[currentSlide].projectType}</span>
@@ -282,7 +282,7 @@ const TestimonialsSection: React.FC = () => {
                       style={{ letterSpacing: '0.01em' }}
                     >
                       <span className="text-4xl text-white/60 leading-none">"</span>
-                      {TESTIMONIALS[currentSlide].comment}
+                      {TESTIMONIALS[currentSlide].content}
                       <span className="text-4xl text-white/60 leading-none">"</span>
                     </motion.blockquote>
                   </div>

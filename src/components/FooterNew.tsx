@@ -218,15 +218,15 @@ const FooterNew: React.FC = () => {
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
-                  <PremiumBadge variant="secondary" className="bg-primary-900/50 text-primary-100">
+                  <PremiumBadge variant="primary" className="bg-primary-900/50 text-primary-100">
                     <Shield className="w-4 h-4 mr-2" />
                     검증된 기술력
                   </PremiumBadge>
-                  <PremiumBadge variant="secondary" className="bg-green-900/50 text-green-100">
+                  <PremiumBadge variant="primary" className="bg-green-900/50 text-green-100">
                     <Zap className="w-4 h-4 mr-2" />
                     신속한 대응
                   </PremiumBadge>
-                  <PremiumBadge variant="secondary" className="bg-purple-900/50 text-purple-100">
+                  <PremiumBadge variant="primary" className="bg-purple-900/50 text-purple-100">
                     <Heart className="w-4 h-4 mr-2" />
                     고객 만족
                   </PremiumBadge>
@@ -251,7 +251,7 @@ const FooterNew: React.FC = () => {
                   { icon: Phone, label: '전화', value: CONTACT_INFO.phone, link: `tel:${CONTACT_INFO.phone}` },
                   { icon: Mail, label: '이메일', value: CONTACT_INFO.email, link: `mailto:${CONTACT_INFO.email}` },
                   { icon: MapPin, label: '주소', value: COMPANY_INFO.address, link: null },
-                  { icon: Clock, label: '운영시간', value: CONTACT_INFO.businessHours, link: null }
+                  { icon: Clock, label: '운영시간', value: CONTACT_INFO.workingHours, link: null }
                 ].map((contact, index) => (
                   <motion.div 
                     key={contact.label}
@@ -334,7 +334,6 @@ const FooterNew: React.FC = () => {
                   </motion.div>
                   
                   <PremiumButton
-                    type="submit"
                     variant="primary"
                     size="md"
                     disabled={isSubmitting}

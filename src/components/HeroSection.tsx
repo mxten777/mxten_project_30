@@ -441,7 +441,6 @@ const HeroSection: React.FC = () => {
                 onClick={() => navigate('/order')}
                 className="premium-shadow-glow px-12 py-5 text-xl font-bold font-heading tracking-wide"
                 icon={<ArrowRight className="w-6 h-6" />}
-                style={{ letterSpacing: '0.02em' }}
               >
                 무료 상담 신청하기
               </PremiumButton>
@@ -457,7 +456,6 @@ const HeroSection: React.FC = () => {
                 onClick={() => scrollToElement('services')}
                 className="px-12 py-5 text-xl font-semibold font-heading tracking-wide"
                 icon={<Sparkles className="w-6 h-6" />}
-                style={{ letterSpacing: '0.02em' }}
               >
                 서비스 둘러보기
               </PremiumButton>

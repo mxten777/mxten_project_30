@@ -2,7 +2,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Helmet } from 'react-helmet-async';
 import { ScreenSizeProvider } from './utils/ResponsiveUtils';
 
 // 컴포넌트 lazy 로딩
