@@ -139,31 +139,28 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 200 }}
-            className={`font-display font-black mb-8 leading-tight relative ${
-              isMobile ? 'text-4xl px-4' : isTablet ? 'text-5xl' : 'text-6xl sm:text-7xl lg:text-8xl'
+            className={`font-bold mb-6 sm:mb-8 leading-tight relative px-4 sm:px-0 ${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl' : 'text-5xl sm:text-6xl lg:text-7xl'
             }`}
+            style={{
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 700,
+              letterSpacing: '-0.02em'
+            }}
           >
             <motion.span 
               className="block text-gray-900 relative z-10"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              style={{ 
-                letterSpacing: '-0.02em',
-                fontWeight: '900'
-              }}
             >
               공장 자동화의
             </motion.span>
             <motion.span 
-              className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 bg-clip-text text-transparent font-black relative z-10"
+              className="block text-blue-700 relative z-10 mt-1 sm:mt-2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              style={{ 
-                letterSpacing: '-0.02em',
-                fontWeight: '900'
-              }}
             >
               새로운 기준
             </motion.span>
@@ -174,22 +171,22 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1, type: "spring", stiffness: 300 }}
-            className={`text-gray-700 font-body mb-12 max-w-4xl mx-auto leading-relaxed ${
-              isMobile ? 'text-lg px-4' : isTablet ? 'text-xl' : 'text-2xl sm:text-3xl'
+            className={`text-gray-700 mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0 ${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl sm:text-2xl'
             }`}
+            style={{
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 500
+            }}
           >
-            <div className="space-y-2">
-              <div className="font-medium">
-                화학공장 통합관제부터 플랜트 자동화까지,
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <span className="font-bold text-blue-700 font-display text-2xl sm:text-3xl">
-                  만송시스템
-                </span>
-              </div>
-              <div className="font-medium">
-                이 제공하는 <span className="font-bold text-purple-600">완벽한 솔루션</span>
-              </div>
+            <div className="text-center">
+              <span className="font-medium">화학공장 통합관제부터 플랜트 자동화까지,</span>
+              <br className="hidden sm:block" />
+              <span className="sm:ml-1"> </span>
+              <span className="font-bold text-blue-700">만송시스템</span>이 제공하는
+              <br className="block sm:hidden" />
+              <span className="sm:ml-1"> </span>
+              <span className="font-bold text-purple-600">완벽한 솔루션</span>
             </div>
           </motion.div>
 
@@ -198,23 +195,28 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2, type: "spring", stiffness: 300 }}
-            className={`flex items-center justify-center mb-16 ${
-              isMobile ? 'flex-col space-y-4 px-4' : 'flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6'
+            className={`flex items-center justify-center mb-12 sm:mb-16 px-4 sm:px-0 ${
+              isMobile ? 'flex-col space-y-3 w-full' : 'flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 lg:space-x-6'
             }`}
           >
             <motion.div
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className={isMobile ? 'w-full' : ''}
             >
               <PremiumButton
                 variant="primary"
                 size="xl"
                 onClick={() => navigate('/order')}
-                className={`shadow-lg font-bold font-heading touch-manipulation border-2 border-transparent hover:border-blue-300 ${
-                  isMobile ? 'px-8 py-4 text-lg min-h-[56px] w-full' : 'px-10 py-4 text-xl'
+                className={`font-bold touch-manipulation border-2 border-transparent hover:border-blue-300 ${
+                  isMobile ? 'px-6 py-3 text-base min-h-[52px] w-full' : 'px-8 py-4 text-lg sm:text-xl'
                 }`}
-                icon={<ArrowRight className="w-5 h-5" />}
+                style={{
+                  fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                  fontWeight: 700
+                }}
+                icon={<ArrowRight className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'}`} />}
               >
                 무료 상담 신청하기
               </PremiumButton>
@@ -224,15 +226,20 @@ const HeroSection: React.FC = () => {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className={isMobile ? 'w-full' : ''}
             >
               <PremiumButton
                 variant="outline"
                 size="xl"
                 onClick={() => scrollToElement('services')}
-                className={`font-semibold font-heading touch-manipulation border-2 hover:border-purple-300 ${
-                  isMobile ? 'px-8 py-4 text-lg min-h-[56px] w-full' : 'px-10 py-4 text-xl'
+                className={`font-semibold touch-manipulation border-2 hover:border-purple-300 ${
+                  isMobile ? 'px-6 py-3 text-base min-h-[52px] w-full' : 'px-8 py-4 text-lg sm:text-xl'
                 }`}
-                icon={<Sparkles className="w-5 h-5" />}
+                style={{
+                  fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                  fontWeight: 600
+                }}
+                icon={<Sparkles className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'}`} />}
               >
                 서비스 둘러보기
               </PremiumButton>
@@ -250,8 +257,8 @@ const HeroSection: React.FC = () => {
               stiffness: 150,
               damping: 25
             }}
-            className={`grid gap-6 sm:gap-8 max-w-5xl mx-auto ${
-              isMobile ? 'grid-cols-1 px-4' : isTablet ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'
+            className={`grid gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto px-4 sm:px-0 ${
+              isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'
             }`}
           >
             {stats.map((stat, index) => (
@@ -273,21 +280,27 @@ const HeroSection: React.FC = () => {
                   className="text-center h-full bg-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/95 transition-all duration-300 group cursor-pointer relative"
                   padding="lg"
                 >
-                  <div className="w-16 h-16 mx-auto mb-6 premium-gradient-primary rounded-2xl flex items-center justify-center relative">
-                    <stat.icon className="w-8 h-8 text-white" />
+                  <div className={`${isMobile ? 'w-12 h-12 mb-4' : 'w-16 h-16 mb-6'} mx-auto premium-gradient-primary rounded-2xl flex items-center justify-center relative`}>
+                    <stat.icon className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} text-white`} />
                   </div>
                   
-                  <div className="text-4xl sm:text-5xl font-black text-blue-700 mb-4 font-display">
+                  <div className={`${isMobile ? 'text-2xl' : 'text-3xl sm:text-4xl'} font-bold text-blue-700 mb-3 sm:mb-4`} style={{
+                    fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                    fontWeight: 700
+                  }}>
                     {stat.number}
                   </div>
                   
-                  <div className="text-gray-800 font-semibold text-base sm:text-lg font-heading">
+                  <div className={`text-gray-800 font-medium ${isMobile ? 'text-sm' : 'text-base sm:text-lg'}`} style={{
+                    fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                    fontWeight: 600
+                  }}>
                     {stat.label}
                   </div>
                   
                   {/* Simple hover indicator */}
                   <motion.div
-                    className="w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-4 rounded-full"
+                    className="w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-3 sm:mt-4 rounded-full"
                     whileHover={{ width: "60%" }}
                     transition={{ 
                       duration: 0.3,

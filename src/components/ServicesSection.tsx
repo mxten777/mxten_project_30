@@ -153,19 +153,22 @@ const ServicesSection: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/50 to-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* 서비스 헤더 */}
-                  <div className="flex items-start justify-between mb-8 relative z-10">
-                    <div className="flex items-center space-x-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 sm:mb-8 relative z-10">
+                    <div className="flex items-center space-x-4 sm:space-x-6 mb-4 sm:mb-0">
                       {/* 아이콘 */}
                       <motion.div 
-                        className="w-16 h-16 bg-gradient-to-br from-primary-500 to-blue-600 rounded-2xl flex items-center justify-center"
+                        className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       >
-                        <IconComponent className="w-8 h-8 text-white" />
+                        <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </motion.div>
                       
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-3 font-heading">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight" style={{
+                          fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                          fontWeight: 700
+                        }}>
                           {service.title}
                         </h3>
                         {service.price && (
@@ -175,8 +178,11 @@ const ServicesSection: React.FC = () => {
                             animate={inView ? { opacity: 1, x: 0 } : {}}
                             transition={{ delay: 1 + index * 0.2 }}
                           >
-                            <Star className="w-5 h-5 text-amber-400" />
-                            <span className="text-lg text-primary-600 font-bold font-body">
+                            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 flex-shrink-0" />
+                            <span className="text-base sm:text-lg text-primary-600 font-bold" style={{
+                              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                              fontWeight: 600
+                            }}>
                               {formatPrice(service.price.min)} ~
                             </span>
                           </motion.div>
@@ -187,16 +193,20 @@ const ServicesSection: React.FC = () => {
 
                   {/* 서비스 설명 */}
                   <motion.p 
-                    className="text-gray-900 leading-relaxed mb-8 text-lg font-body relative z-10 font-medium"
+                    className="text-gray-800 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg relative z-10"
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ delay: 1.2 + index * 0.2 }}
+                    style={{
+                      fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                      fontWeight: 500
+                    }}
                   >
                     {service.description}
                   </motion.p>
 
                   {/* Premium 특징 리스트 */}
-                  <ul className="space-y-4 mb-10 relative z-10">
+                  <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10 relative z-10">
                     {service.features.map((feature, featureIndex) => (
                       <motion.li
                         key={featureIndex}
@@ -209,14 +219,17 @@ const ServicesSection: React.FC = () => {
                           stiffness: 300
                         }}
                         whileHover={{ x: 10 }}
-                        className="flex items-center space-x-4 group/item"
+                        className="flex items-center space-x-3 sm:space-x-4 group/item"
                       >
                         <div
-                          className="w-5 h-5 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
+                          className="w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
                         >
-                          <CheckCircle className="w-3 h-3 text-white" />
+                          <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                         </div>
-                        <span className="text-gray-900 font-semibold text-lg font-body group-hover/item:text-primary-700 transition-colors duration-300">
+                        <span className="text-gray-900 font-medium sm:font-semibold text-sm sm:text-base lg:text-lg group-hover/item:text-primary-700 transition-colors duration-300" style={{
+                          fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                          fontWeight: 500
+                        }}>
                           {feature}
                         </span>
                       </motion.li>
@@ -234,12 +247,15 @@ const ServicesSection: React.FC = () => {
                       variant="primary"
                       size="lg"
                       onClick={() => navigate('/order')}
-                      className="w-full group/btn premium-shadow-glow hover:premium-shadow-glow-intense"
+                      className="w-full group/btn bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 sm:py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
                     >
-                      <div className="flex items-center justify-center space-x-3">
-                        <Zap className="w-5 h-5" />
-                        <span className="font-bold">견적 문의</span>
-                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
+                      <div className="flex items-center justify-center space-x-2 sm:space-x-3">
+                        <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="text-sm sm:text-base font-bold" style={{
+                          fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                          fontWeight: 700
+                        }}>견적 문의</span>
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
                       </div>
                     </PremiumButton>
                   </motion.div>

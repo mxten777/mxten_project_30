@@ -136,27 +136,37 @@ const TestimonialsSection: React.FC = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-5xl lg:text-6xl font-black text-gray-900 mb-8 font-display leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight px-4 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ letterSpacing: '-0.02em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 700,
+              letterSpacing: '-0.02em'
+            }}
           >
-            <span className="block">고객이 직접 말하는</span>
-            <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">
+            <span className="block text-gray-900">고객이 직접 말하는</span>
+            <span className="block text-amber-600 mt-1 sm:mt-2">
               만송시스템 이야기
             </span>
           </motion.h2>
           
           <motion.p 
-            className="text-2xl text-gray-900 max-w-4xl mx-auto leading-relaxed font-body"
+            className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ letterSpacing: '0.01em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 500,
+              letterSpacing: '0.01em'
+            }}
           >
-            <span className="font-medium">30년+ 경험과 검증된 기술력으로</span><br />
-            <span className="font-bold text-primary-700">고객의 성공을 함께 만들어온 이야기들입니다</span>
+            <span className="font-semibold text-gray-900">30년+ 경험과 검증된 기술력으로</span>
+            <br className="hidden sm:block" />
+            <span className="sm:ml-0"> </span>
+            <span className="font-bold text-blue-700">고객의 성공을 함께 만들어온 이야기들입니다</span>
           </motion.p>
         </motion.div>
 
