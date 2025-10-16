@@ -207,62 +207,39 @@ const AboutSection: React.FC = () => {
                 <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${card.color} opacity-10 rounded-bl-full blur-xl`}></div>
                 <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/90 to-white/95 opacity-100"></div>
                 
-                {/* Premium 아이콘 */}
+                {/* 아이콘 */}
                 <motion.div 
-                  className={`relative w-20 h-20 bg-gradient-to-br ${card.color} rounded-3xl flex items-center justify-center mb-8 premium-shadow-glow`}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    rotate: 5
-                  }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  className={`relative w-16 h-16 bg-gradient-to-br ${card.color} rounded-2xl flex items-center justify-center mb-6`}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  <card.icon className="w-10 h-10 text-white relative z-10" />
-                  
-                  {/* 아이콘 글로우 효과 */}
-                  <div className="absolute inset-0 bg-white/20 rounded-3xl scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm"></div>
-                  
-                  {/* 회전하는 링 */}
-                  <motion.div
-                    className="absolute inset-0 border-2 border-white/30 rounded-3xl"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  />
+                  <card.icon className="w-8 h-8 text-white" />
                 </motion.div>
 
-                {/* Premium 제목 */}
-                <h3 className="text-3xl font-bold text-gray-900 mb-8 font-heading relative z-20">
+                {/* 제목 */}
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 font-heading">
                   {card.title}
                 </h3>
 
-                {/* Premium 아이템 리스트 */}
-                <ul className="space-y-4 relative z-20">
+                {/* 아이템 리스트 */}
+                <ul className="space-y-3">
                   {card.items.map((item, itemIndex) => (
                     <motion.li
                       key={itemIndex}
-                      initial={{ opacity: 0, x: -30 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ 
-                        duration: 0.6, 
-                        delay: 1 + index * 0.2 + itemIndex * 0.1,
+                        duration: 0.4, 
+                        delay: 0.8 + index * 0.1 + itemIndex * 0.05,
                         type: "spring",
-                        stiffness: 300
+                        stiffness: 250
                       }}
-                      whileHover={{ x: 5 }}
-                      className="flex items-center space-x-4 text-gray-800 group/item"
+                      className="flex items-center space-x-3 text-gray-800"
                     >
-                      <motion.div 
-                        className={`w-3 h-3 bg-gradient-to-r ${card.color} rounded-full flex-shrink-0 premium-shadow-glow`}
-                        animate={{ 
-                          scale: [1, 1.2, 1],
-                          opacity: [0.7, 1, 0.7]
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: itemIndex * 0.3
-                        }}
+                      <div 
+                        className={`w-2 h-2 bg-gradient-to-r ${card.color} rounded-full flex-shrink-0`}
                       />
-                      <span className="font-semibold font-body group-hover/item:text-blue-700 transition-colors duration-300 text-lg text-gray-900">
+                      <span className="font-medium font-body text-gray-900">
                         {item}
                       </span>
                     </motion.li>

@@ -145,37 +145,13 @@ const ServicesSection: React.FC = () => {
                   {/* 서비스 헤더 */}
                   <div className="flex items-start justify-between mb-8 relative z-10">
                     <div className="flex items-center space-x-6">
-                      {/* Premium 아이콘 */}
+                      {/* 아이콘 */}
                       <motion.div 
-                        className="w-20 h-20 bg-gradient-to-br from-primary-500 to-blue-600 rounded-3xl flex items-center justify-center premium-shadow-glow relative"
-                        whileHover={{ 
-                          scale: 1.15, 
-                          rotate: 10
-                        }}
-                        transition={{ type: "spring", stiffness: 400 }}
+                        className="w-16 h-16 bg-gradient-to-br from-primary-500 to-blue-600 rounded-2xl flex items-center justify-center"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       >
-                        <IconComponent className="w-10 h-10 text-white relative z-10" />
-                        
-                        {/* 회전하는 링 */}
-                        <motion.div
-                          className="absolute inset-0 border-2 border-white/30 rounded-3xl"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                        />
-                        
-                        {/* 펄스 효과 */}
-                        <motion.div
-                          className="absolute inset-0 bg-white/20 rounded-3xl scale-110"
-                          animate={{ 
-                            scale: [1, 1.2, 1],
-                            opacity: [0, 0.3, 0]
-                          }}
-                          transition={{ 
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: index * 0.5
-                          }}
-                        />
+                        <IconComponent className="w-8 h-8 text-white" />
                       </motion.div>
                       
                       <div>
@@ -225,20 +201,11 @@ const ServicesSection: React.FC = () => {
                         whileHover={{ x: 10 }}
                         className="flex items-center space-x-4 group/item"
                       >
-                        <motion.div
-                          className="w-6 h-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
-                          animate={{ 
-                            scale: [1, 1.1, 1],
-                            rotate: [0, 180, 360]
-                          }}
-                          transition={{ 
-                            duration: 3,
-                            repeat: Infinity,
-                            delay: featureIndex * 0.5
-                          }}
+                        <div
+                          className="w-5 h-5 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0"
                         >
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </motion.div>
+                          <CheckCircle className="w-3 h-3 text-white" />
+                        </div>
                         <span className="text-gray-900 font-semibold text-lg font-body group-hover/item:text-primary-700 transition-colors duration-300">
                           {feature}
                         </span>
@@ -324,42 +291,22 @@ const ServicesSection: React.FC = () => {
                     className="text-center group relative"
                   >
                     {/* 프로세스 카드 */}
-                    <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 premium-shadow-glow hover:bg-slate-800/95 transition-all duration-300 border border-white/10">
-                      <motion.div 
-                        className={`w-20 h-20 bg-gradient-to-br ${process.color} rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow-glow`}
-                        animate={{ 
-                          scale: [1, 1.1, 1],
-                          rotateY: [0, 180, 360]
-                        }}
-                        transition={{ 
-                          duration: 4,
-                          repeat: Infinity,
-                          delay: index * 0.8
-                        }}
+                    <div className="bg-slate-800/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-slate-800/95 transition-colors duration-300">
+                      <div 
+                        className={`w-16 h-16 bg-gradient-to-br ${process.color} rounded-xl flex items-center justify-center mx-auto mb-4`}
                       >
-                        <span className="text-white font-black text-xl font-display">{process.step}</span>
-                      </motion.div>
+                        <span className="text-white font-bold text-lg font-display">{process.step}</span>
+                      </div>
                       
-                      <h4 className="text-2xl font-bold mb-4 font-heading text-yellow-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{process.title}</h4>
-                      <p className="text-gray-100 leading-relaxed font-body font-semibold text-sm" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>{process.desc}</p>
+                      <h4 className="text-xl font-bold mb-3 font-heading text-white">{process.title}</h4>
+                      <p className="text-gray-300 leading-relaxed font-body text-sm">{process.desc}</p>
                     </div>
                     
                     {/* 연결 화살표 (마지막 제외) */}
                     {index < 4 && (
-                      <motion.div 
-                        className="hidden md:block absolute top-10 -right-4 z-20"
-                        animate={{ 
-                          x: [0, 5, 0],
-                          opacity: [0.6, 1, 0.6]
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: index * 0.3
-                        }}
-                      >
-                        <ArrowRight className="w-8 h-8 text-white/70" />
-                      </motion.div>
+                      <div className="hidden md:block absolute top-8 -right-4 z-20">
+                        <ArrowRight className="w-6 h-6 text-white/50" />
+                      </div>
                     )}
                   </motion.div>
                 ))}

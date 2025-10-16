@@ -385,37 +385,18 @@ const TestimonialsSection: React.FC = () => {
               }}
               whileHover={{ y: -10, scale: 1.05 }}
             >
-              <PremiumCard className="text-center h-full premium-shadow-glow hover:premium-shadow-glow-intense transition-all duration-500">
-                <motion.div 
-                  className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow-glow`}
-                  animate={{ 
-                    rotate: [0, 5, -5, 0],
-                    scale: [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.5
-                  }}
+              <PremiumCard className="text-center h-full bg-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/95 transition-all duration-300">
+                <div 
+                  className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mx-auto mb-4`}
                 >
-                  <stat.icon className="w-8 h-8 text-white" />
-                </motion.div>
+                  <stat.icon className="w-7 h-7 text-white" />
+                </div>
                 
-                <motion.div 
-                  className="text-4xl font-black text-gray-900 mb-3 font-display"
-                  animate={{ 
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.3
-                  }}
-                >
+                <div className="text-3xl font-bold text-gray-900 mb-2 font-display">
                   {stat.value}
-                </motion.div>
+                </div>
                 
-                <p className="text-gray-900 font-medium text-lg font-body">
+                <p className="text-gray-800 font-medium text-base font-body">
                   {stat.label}
                 </p>
               </PremiumCard>
