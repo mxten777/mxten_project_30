@@ -510,46 +510,46 @@ const OrderPage: React.FC = () => {
         </div>
       </motion.div>
 
-      <div className="container-custom py-12 relative z-10">
+      <div className="container-custom py-8 px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 페이지 헤더 */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl lg:text-6xl font-black text-gray-900 mb-6 font-display">
-            <span className="bg-gradient-to-r from-primary-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 font-display px-4">
+            <span className="bg-gradient-to-r from-primary-600 via-blue-600 to-purple-600 bg-clip-text text-transparent break-words">
               프리미엄 주문 접수
             </span>
           </h1>
-          <p className="text-xl text-gray-600 font-body max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 font-body max-w-2xl mx-auto px-4">
             30년 경험의 전문성으로 고객님의 프로젝트를 성공으로 이끌어드리겠습니다
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto px-4">
           
           {/* Premium 단계 표시기 */}
           <motion.div 
-            className="mb-16"
+            className="mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <PremiumCard className="bg-white/80 backdrop-blur-sm">
-              <div className="flex items-center justify-between relative">
+            <PremiumCard className="bg-white/80 backdrop-blur-sm overflow-hidden">
+              <div className="flex items-center justify-between relative overflow-x-auto pb-4 sm:pb-0">
                 {steps.map((step, index) => (
                   <React.Fragment key={step.id}>
                     <motion.div 
-                      className="flex flex-col items-center relative z-10"
+                      className="flex flex-col items-center relative z-10 min-w-0 flex-shrink-0 px-2"
                       whileHover={{ scale: 1.05 }}
                     >
                       <motion.div 
-                        className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
+                        className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 ${
                           currentStep >= step.id
-                            ? 'bg-gradient-to-br from-primary-500 to-blue-600 text-white premium-shadow-glow'
+                            ? 'bg-gradient-to-br from-primary-500 to-blue-600 text-white shadow-lg'
                             : 'bg-gray-100 text-gray-400'
                         }`}
                         animate={currentStep === step.id ? { 
@@ -558,22 +558,22 @@ const OrderPage: React.FC = () => {
                         } : {}}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        <step.icon className="w-8 h-8" />
+                        <step.icon className="w-5 h-5 sm:w-8 sm:h-8" />
                       </motion.div>
                       
-                      <div className="text-center">
-                        <h3 className={`font-bold mb-1 transition-colors duration-300 ${
+                      <div className="text-center max-w-20 sm:max-w-none">
+                        <h3 className={`font-bold mb-1 text-xs sm:text-base transition-colors duration-300 ${
                           currentStep >= step.id ? 'text-primary-600' : 'text-gray-500'
                         }`}>
                           {step.title}
                         </h3>
-                        <p className="text-sm text-gray-500 font-body">{step.description}</p>
+                        <p className="text-xs sm:text-sm text-gray-500 font-body hidden sm:block">{step.description}</p>
                       </div>
                     </motion.div>
                     
                     {index < steps.length - 1 && (
                       <motion.div 
-                        className={`flex-1 h-1 mx-8 rounded-full transition-all duration-500 ${
+                        className={`flex-1 h-0.5 sm:h-1 mx-2 sm:mx-8 rounded-full transition-all duration-500 min-w-4 ${
                           currentStep > step.id ? 'bg-primary-500' : 'bg-gray-200'
                         }`}
                         animate={currentStep > step.id ? { scale: [1, 1.1, 1] } : {}}
