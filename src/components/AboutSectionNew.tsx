@@ -280,10 +280,10 @@ const AboutSection: React.FC = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
             
-            {/* 회사 정보 그리드 레이아웃 */}
+            {/* 회사 실적 및 성과 그리드 레이아웃 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               
-              {/* 좌측: 회사 정보 */}
+              {/* 좌측: 주요 실적 및 성과 */}
               <div className="space-y-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -291,87 +291,100 @@ const AboutSection: React.FC = () => {
                   transition={{ duration: 0.6, delay: 1.0 }}
                 >
                   <div className="flex items-center space-x-3 mb-8">
-                    <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold text-white font-heading">만송시스템</h3>
-                      <p className="text-amber-300 font-medium">Factory Automation Specialist</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white" style={{
+                        fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                        fontWeight: 700
+                      }}>주요 실적 & 성과</h3>
+                      <p className="text-blue-300 font-medium text-sm sm:text-base">Proven Track Record</p>
                     </div>
                   </div>
                 
-                  <div className="space-y-4 text-lg font-body text-white">
+                  <div className="space-y-4 text-base sm:text-lg text-white">
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.6, delay: 1.8 }}
-                      className="text-white"
+                      className="flex items-center space-x-3"
                     >
-                      <span className="font-bold text-amber-400">설립일:</span> <span className="text-white font-semibold ml-2">{COMPANY_INFO.establishedDate}</span>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                      <span className="font-semibold text-white">완료 프로젝트: <span className="text-blue-300 font-bold">20+ 건</span></span>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.6, delay: 1.9 }}
-                      className="text-white"
+                      className="flex items-center space-x-3"
                     >
-                      <span className="font-bold text-amber-400">사업영역:</span> <span className="text-white font-semibold ml-2">{COMPANY_INFO.industry}</span>
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="font-semibold text-white">고객 만족도: <span className="text-green-300 font-bold">98%</span></span>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.6, delay: 2.0 }}
-                      className="text-white"
+                      className="flex items-center space-x-3"
                     >
-                      <span className="font-bold text-amber-400">소재지:</span> <span className="text-white font-semibold ml-2">{COMPANY_INFO.address}</span>
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      <span className="font-semibold text-white">재계약률: <span className="text-purple-300 font-bold">100%</span></span>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.6, delay: 2.1 }}
-                      className="text-white"
+                      className="flex items-center space-x-3"
                     >
-                      <span className="font-bold text-amber-400">핵심파트너:</span> <span className="text-white font-semibold ml-2">{COMPANY_INFO.partnership.partner} ({COMPANY_INFO.partnership.experience} 경험)</span>
+                      <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                      <span className="font-semibold text-white">ABB 파트너: <span className="text-amber-300 font-bold">30년+ 경험</span></span>
                     </motion.div>
                   </div>
                 </motion.div>
               </div>
 
-              {/* 우측: 전문 기술 영역 - 모바일 반응형 최적화 */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                {[
-                  { value: 'DCS', label: '분산제어시스템', delay: 1.8 },
-                  { value: 'SCADA', label: '데이터수집제어', delay: 1.9 },
-                  { value: 'HMI', label: '사용자인터페이스', delay: 2.0 },
-                  { value: 'SIS', label: '안전계장시스템', delay: 2.1 }
-                ].map((tech, index) => (
-                  <motion.div 
-                    key={tech.label}
-                    className="text-center group"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.6, delay: tech.delay }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <motion.div 
-                      className="text-2xl sm:text-3xl lg:text-4xl font-black mb-2 sm:mb-3 font-display text-amber-400"
-                      animate={{ 
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3
-                      }}
-                      style={{ textShadow: '0 0 10px rgba(251, 191, 36, 0.5)' }}
-                    >
-                      {tech.value}
-                    </motion.div>
-                    <div className="text-white font-bold font-body text-xs sm:text-sm text-center">
-                      {tech.label}
+              {/* 우측: 주요 고객사 & 프로젝트 */}
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                >
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-white" />
                     </div>
-                  </motion.div>
-                ))}
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white" style={{
+                        fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                        fontWeight: 700
+                      }}>주요 고객사</h3>
+                      <p className="text-green-300 font-medium text-sm sm:text-base">Major Clients</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { company: 'SK이노베이션', project: 'DCS 시스템 구축', year: '2024' },
+                      { company: 'LG화학', project: '공정자동화', year: '2023' },
+                      { company: '삼성전자', project: '모니터링 시스템', year: '2022' },
+                      { company: 'POSCO', project: 'SCADA 시스템', year: '2023' }
+                    ].map((client, index) => (
+                      <motion.div
+                        key={client.company}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                        className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                      >
+                        <div className="text-white font-bold text-sm sm:text-base mb-1">{client.company}</div>
+                        <div className="text-blue-300 text-xs sm:text-sm font-medium mb-1">{client.project}</div>
+                        <div className="text-gray-300 text-xs">{client.year}년 완료</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
             </div>
           </PremiumCard>
