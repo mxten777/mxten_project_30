@@ -173,7 +173,7 @@ const OrderForm: React.FC = () => {
         <div className="container-custom py-4">
           <Link 
             to="/" 
-            className="inline-flex items-center space-x-2 text-gray-600 hover:text-primary-500 transition-colors"
+            className="inline-flex items-center space-x-2 text-gray-800 hover:text-primary-500 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>홈으로 돌아가기</span>
@@ -189,7 +189,7 @@ const OrderForm: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               온라인 주문 접수
             </h1>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-900 mb-6">
               단계별로 정보를 입력하여 주문을 접수해주세요
             </p>
             

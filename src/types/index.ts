@@ -84,13 +84,21 @@ export interface Testimonial {
 export interface ContactInfo {
   phone: string;
   email: string;
+  emailDetail: {
+    primary: string;
+    business: string;
+  };
   address: string;
   workingHours: string;
+  website?: string;
   socialMedia: {
     kakao?: string;
     blog?: string;
     youtube?: string;
     linkedin?: string;
+    facebook?: string;
+    twitter?: string;
+    instagram?: string;
   };
 }
 
@@ -178,3 +186,20 @@ export const SERVICE_TYPE_OPTIONS = [
   { id: 'control', label: '관제 시스템 구축', description: '통합 관제실 및 운영 시스템' },
   { id: 'education', label: '교육 및 유지보수', description: '전문 교육 및 지속적 지원 서비스' }
 ] as const;
+
+// 팀 멤버 타입
+export interface TeamMember {
+  name: string;
+  position: string;
+  role: string;
+  description: string;
+  expertise: string[];
+  experience: string;
+  avatar: string;
+}
+
+// 회사 가치 타입
+export interface CompanyValue {
+  title: string;
+  description: string;
+}

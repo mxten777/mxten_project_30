@@ -21,15 +21,23 @@ export const COMPANY_INFO: Company = {
 
 // 연락처 정보
 export const CONTACT_INFO: ContactInfo = {
-  phone: '041-XXX-XXXX',
-  email: 'info@mansongsystem.co.kr',
-  address: '충남 아산시 배방읍 광장로',
+  phone: '010-5264-8027',
+  email: 'limyoungmu@hanmail.net',
+  emailDetail: {
+    primary: 'limyoungmu@hanmail.net',
+    business: 'limyoungmoo@mansong.kr'
+  },
+  address: '(31471) 충남 천안시 서북구 광정로 210, B212호',
   workingHours: '평일 09:00-18:00',
+  website: 'https://mansong.kr',
   socialMedia: {
     kakao: 'https://pf.kakao.com/mansong',
     blog: 'https://blog.naver.com/mansong',
     youtube: 'https://youtube.com/@mansong',
-    linkedin: 'https://linkedin.com/company/mansong'
+    linkedin: 'https://linkedin.com/company/mansong',
+    facebook: '',
+    twitter: '',
+    instagram: ''
   }
 };
 

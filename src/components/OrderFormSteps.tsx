@@ -19,7 +19,7 @@ export const Step1Form: React.FC<Step1FormProps> = ({ register, errors }) => {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">기본 정보</h2>
-        <p className="text-gray-600">회사 및 담당자 정보를 입력해주세요.</p>
+        <p className="text-gray-900">회사 및 담당자 정보를 입력해주세요.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -204,7 +204,7 @@ export const Step2Form: React.FC<Step2FormProps> = ({
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">프로젝트 정보</h2>
-        <p className="text-gray-600">원하시는 서비스와 프로젝트 규모를 선택해주세요.</p>
+        <p className="text-gray-900">원하시는 서비스와 프로젝트 규모를 선택해주세요.</p>
       </div>
 
       {/* 서비스 유형 선택 */}
@@ -392,7 +392,7 @@ export const Step3Form: React.FC<Step3FormProps> = ({
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">상세 요구사항</h2>
-        <p className="text-gray-600">프로젝트의 구체적인 요구사항과 관련 자료를 제공해주세요.</p>
+        <p className="text-gray-900">프로젝트의 구체적인 요구사항과 관련 자료를 제공해주세요.</p>
       </div>
 
       {/* 상세 설명 */}
@@ -522,7 +522,7 @@ export const Step4Form: React.FC<Step4FormProps> = ({
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">주문 정보 확인</h2>
-        <p className="text-gray-600">입력하신 정보를 확인하고 주문을 완료해주세요.</p>
+        <p className="text-gray-900">입력하신 정보를 확인하고 주문을 완료해주세요.</p>
       </div>
 
       {/* 입력 정보 요약 */}
@@ -532,11 +532,11 @@ export const Step4Form: React.FC<Step4FormProps> = ({
         <div>
           <h3 className="font-semibold text-gray-900 mb-2">기본 정보</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div><span className="text-gray-600">회사명:</span> {formData.customer?.companyName}</div>
-            <div><span className="text-gray-600">담당자:</span> {formData.customer?.contactPerson}</div>
-            <div><span className="text-gray-600">연락처:</span> {formData.customer?.phone}</div>
-            <div><span className="text-gray-600">이메일:</span> {formData.customer?.email}</div>
-            <div className="md:col-span-2"><span className="text-gray-600">주소:</span> {formData.customer?.address}</div>
+            <div><span className="text-gray-800 font-semibold">회사명:</span> {formData.customer?.companyName}</div>
+            <div><span className="text-gray-800 font-semibold">담당자:</span> {formData.customer?.contactPerson}</div>
+            <div><span className="text-gray-800 font-semibold">연락처:</span> {formData.customer?.phone}</div>
+            <div><span className="text-gray-800 font-semibold">이메일:</span> {formData.customer?.email}</div>
+            <div className="md:col-span-2"><span className="text-gray-800 font-semibold">주소:</span> {formData.customer?.address}</div>
           </div>
         </div>
 
@@ -545,22 +545,22 @@ export const Step4Form: React.FC<Step4FormProps> = ({
           <h3 className="font-semibold text-gray-900 mb-2">프로젝트 정보</h3>
           <div className="space-y-2 text-sm">
             <div>
-              <span className="text-gray-600">서비스:</span> {
+              <span className="text-gray-800 font-semibold">서비스:</span> {
                 formData.project?.serviceTypes?.map(type => 
                   SERVICE_TYPE_OPTIONS.find(opt => opt.id === type)?.label
                 ).join(', ')
               }
             </div>
             <div>
-              <span className="text-gray-600">규모:</span> {
+              <span className="text-gray-800 font-semibold">규모:</span> {
                 PROJECT_SCALES[formData.project?.projectScale as keyof typeof PROJECT_SCALES]?.label
               }
             </div>
             <div>
-              <span className="text-gray-600">완료 희망일:</span> {formData.project?.expectedCompletion}
+              <span className="text-gray-800 font-semibold">완료 희망일:</span> {formData.project?.expectedCompletion}
             </div>
             <div>
-              <span className="text-gray-600">첨부 파일:</span> {uploadedFiles.length}개
+              <span className="text-gray-800 font-semibold">첨부 파일:</span> {uploadedFiles.length}개
             </div>
           </div>
         </div>

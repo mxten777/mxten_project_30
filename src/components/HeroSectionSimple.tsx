@@ -14,19 +14,19 @@ const HeroSection: React.FC = () => {
     {
       icon: TrendingUp,
       number: `${BUSINESS_STATS.totalProjects}+`,
-      label: '완료 프로젝트',
+      label: '대기업 프로젝트 완료',
       color: 'text-blue-500'
     },
     {
       icon: Users,
       number: `${BUSINESS_STATS.satisfactionRate}%`,
-      label: '고객 만족도',
+      label: '고객 만족도 달성',
       color: 'text-green-500'
     },
     {
       icon: Award,
       number: `${BUSINESS_STATS.experienceYears}년+`,
-      label: 'ABB 경험',
+      label: 'ABB 파트너십 유지',
       color: 'text-yellow-500'
     }
   ];
@@ -49,11 +49,11 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-primary-100"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-50 via-white to-yellow-50 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-yellow-200"
           >
-            <Award className="w-5 h-5 text-primary-500" />
-            <span className="text-sm font-medium text-gray-700">
-              ABB코리아 공식 파트너 • 30년+ 전문성
+            <Award className="w-5 h-5 text-yellow-600" />
+            <span className="text-sm font-bold text-gray-800">
+              🏆 ABB 코리아 공식 파트너 • 산업자동화 1위
             </span>
           </motion.div>
 
@@ -75,8 +75,8 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            현장 모니터링부터 관제 시스템까지,<br />
-            <span className="font-semibold text-primary-600">만송시스템</span>이 제공하는 완벽한 솔루션
+            <span className="font-medium text-gray-700">DCS · SCADA · HMI 전문기업</span><br />
+            <span className="font-semibold text-primary-600">ABB 파트너십</span>으로 검증된 <span className="font-bold text-gray-800">산업용 자동화 솔루션</span>
           </motion.p>
 
           {/* CTA 버튼들 */}
@@ -88,20 +88,20 @@ const HeroSection: React.FC = () => {
           >
             <motion.button
               onClick={() => navigate('/order')}
-              className="btn-primary group flex items-center space-x-2 text-lg px-8 py-4"
+              className="btn-primary group flex items-center space-x-2 text-lg px-8 py-4 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>무료 상담 신청</span>
+              <span className="font-bold">무료 현장 진단 받기</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button
               onClick={() => scrollToElement('services')}
-              className="btn-secondary text-lg px-8 py-4"
+              className="btn-secondary text-lg px-8 py-4 font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              서비스 둘러보기
+              30년 포트폴리오 보기
             </motion.button>
           </motion.div>
 

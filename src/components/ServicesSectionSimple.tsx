@@ -41,13 +41,13 @@ const ServicesSection: React.FC = () => {
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="block">전문화된 서비스로</span>
-            <span className="text-gradient">완벽한 솔루션 제공</span>
+            <span className="block">화학공장 자동화</span>
+            <span className="text-gradient">전문 솔루션</span>
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            설계부터 구축, 운영, 유지보수까지<br />
-            원스톱 서비스로 고객의 성공을 지원합니다
+            <span className="font-bold text-gray-800">DCS · SCADA · HMI</span> 시스템부터 <span className="font-semibold text-primary-600">통합관제실</span>까지<br />
+            <span className="font-medium">30년 노하우</span>로 안전하고 효율적인 플랜트를 완성합니다
           </p>
         </motion.div>
 
@@ -137,16 +137,17 @@ const ServicesSection: React.FC = () => {
           className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg"
         >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            서비스 진행 프로세스
+            <span className="block text-2xl font-medium text-primary-600 mb-2">화학공장 자동화 프로젝트</span>
+            검증된 5단계 프로세스
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {[
-              { step: '01', title: '상담', desc: '요구사항 분석 및 현장 조사' },
-              { step: '02', title: '설계', desc: '맞춤형 시스템 설계 및 제안' },
-              { step: '03', title: '구축', desc: '전문팀의 체계적 시스템 구축' },
-              { step: '04', title: '교육', desc: '운영진 대상 전문 교육 실시' },
-              { step: '05', title: '지원', desc: '지속적인 유지보수 및 지원' }
+              { step: '01', title: '현장진단', desc: 'P&ID 분석 및 공정 최적화 컨설팅' },
+              { step: '02', title: 'DCS설계', desc: 'ABB 800xA 기반 통합제어시스템 설계' },
+              { step: '03', title: '시스템구축', desc: 'SCADA·HMI·SIS 통합 플랫폼 구축' },
+              { step: '04', title: '운전교육', desc: '운전원 대상 실무 운전교육 및 매뉴얼 제공' },
+              { step: '05', title: 'A/S지원', desc: '24시간 원격지원 및 예방정비 서비스' }
             ].map((process, index) => (
               <motion.div
                 key={process.step}

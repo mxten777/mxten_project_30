@@ -1,4 +1,4 @@
-// TestimonialsSectionNew.tsx - 프리미엄 고객 후기 섹션
+// TestimonialsSection.tsx - 프리미엄 고객 후기 섹션
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -149,7 +149,7 @@ const TestimonialsSection: React.FC = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-body"
+            className="text-2xl text-gray-900 max-w-4xl mx-auto leading-relaxed font-body"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -170,7 +170,7 @@ const TestimonialsSection: React.FC = () => {
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           
-          <PremiumCard className="premium-gradient-primary text-white relative overflow-hidden premium-shadow-glow-intense">
+          <PremiumCard className="bg-slate-800 text-white relative overflow-hidden premium-shadow-glow-intense">
             
             {/* Premium 배경 장식 */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
@@ -185,147 +185,157 @@ const TestimonialsSection: React.FC = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
-                initial={{ opacity: 0, x: 50, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -50, scale: 0.95 }}
-                transition={{ duration: 0.6, type: "spring", stiffness: 300 }}
-                className="relative z-10 p-8 lg:p-16"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -30, scale: 0.95 }}
+                transition={{ duration: 0.5, type: "spring", stiffness: 400 }}
+                className="relative z-10 max-w-6xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                   
-                  {/* 좌측: Premium 고객 정보 */}
-                  <div className="lg:col-span-1 space-y-8">
+                  {/* 좌측: 고객 정보 패널 */}
+                  <div className="lg:col-span-2 bg-gradient-to-br from-blue-600 to-blue-700 p-8 space-y-6">
                     
-                    {/* 고객 아바타 & 정보 */}
+                    {/* 고객 헤더 */}
                     <motion.div 
-                      className="flex items-center space-x-6"
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
+                      className="text-center"
                     >
-                      <motion.div 
-                        className="w-24 h-24 bg-gradient-to-br from-white/20 to-white/10 rounded-3xl flex items-center justify-center premium-shadow-glow"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <Quote className="w-12 h-12 text-white" />
-                      </motion.div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white mb-2 font-heading">
-                          {TESTIMONIALS[currentSlide].customerName}
-                        </h3>
-                        <div className="space-y-1 text-white/80">
-                          <motion.div 
-                            className="flex items-center space-x-2"
-                            whileHover={{ x: 5 }}
-                          >
-                            <MapPin className="w-4 h-4" />
-                            <span className="font-medium">{TESTIMONIALS[currentSlide].location}</span>
-                          </motion.div>
-                          <motion.div 
-                            className="flex items-center space-x-2"
-                            whileHover={{ x: 5 }}
-                          >
-                            <Calendar className="w-4 h-4" />
-                            <span className="font-medium">{formatDate(TESTIMONIALS[currentSlide].completedAt)}</span>
-                          </motion.div>
+                      <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white/30">
+                        <Quote className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {TESTIMONIALS[currentSlide].customerName}
+                      </h3>
+                      
+                      {/* 프로젝트 정보 */}
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-center space-x-2 text-blue-100">
+                          <MapPin className="w-4 h-4" />
+                          <span className="font-medium">{TESTIMONIALS[currentSlide].location}</span>
+                        </div>
+                        <div className="flex items-center justify-center space-x-2 text-blue-100">
+                          <Calendar className="w-4 h-4" />
+                          <span className="font-medium">{formatDate(TESTIMONIALS[currentSlide].completedAt)}</span>
                         </div>
                       </div>
                     </motion.div>
                     
-                    {/* Premium 별점 */}
+                    {/* 별점 섹션 */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      className="space-y-4"
+                      className="text-center"
                     >
-                      <div className="flex items-center space-x-2">
+                      <div className="flex justify-center mb-3">
                         {renderStars(TESTIMONIALS[currentSlide].rating)}
                       </div>
-                      <motion.div 
-                        className="flex items-center space-x-3"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <Award className="w-6 h-6 text-amber-400" />
-                        <span className="text-2xl font-bold text-white">
-                          {TESTIMONIALS[currentSlide].rating}/5.0
-                        </span>
-                        <span className="text-white/80 font-medium">완벽한 만족</span>
-                      </motion.div>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                        <div className="flex items-center justify-center space-x-2">
+                          <Award className="w-5 h-5 text-yellow-300" />
+                          <span className="text-lg font-bold text-white">
+                            {TESTIMONIALS[currentSlide].rating}/5.0
+                          </span>
+                        </div>
+                        <span className="text-blue-100 text-sm">완벽한 만족도</span>
+                      </div>
                     </motion.div>
                     
-                    {/* Premium 프로젝트 타입 배지 */}
+                    {/* 프로젝트 타입 */}
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6, type: "spring" }}
-                      whileHover={{ scale: 1.05 }}
+                      transition={{ delay: 0.6 }}
+                      className="text-center"
                     >
-                      <PremiumBadge variant="primary" size="lg" className="bg-white/20 backdrop-blur-sm">
+                      <div className="bg-white text-blue-700 px-4 py-3 rounded-lg font-bold shadow-lg inline-block">
                         <div className="flex items-center space-x-2">
                           <Sparkles className="w-4 h-4" />
-                          <span className="font-bold">{TESTIMONIALS[currentSlide].projectType}</span>
+                          <span className="text-sm font-bold">{TESTIMONIALS[currentSlide].projectType}</span>
                         </div>
-                      </PremiumBadge>
+                      </div>
                     </motion.div>
                   </div>
 
-                  {/* 우측: Premium 후기 내용 */}
-                  <div className="lg:col-span-2">
-                    <motion.blockquote 
-                      className="text-2xl lg:text-3xl font-medium text-white leading-relaxed font-body"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 }}
-                      style={{ letterSpacing: '0.01em' }}
+                  {/* 우측: 후기 콘텐츠 */}
+                  <div className="lg:col-span-3 p-8 lg:p-12 flex items-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                      className="w-full"
                     >
-                      <span className="text-4xl text-white/60 leading-none">"</span>
-                      {TESTIMONIALS[currentSlide].content}
-                      <span className="text-4xl text-white/60 leading-none">"</span>
-                    </motion.blockquote>
+                      <div className="relative">
+                        {/* 인용 아이콘 */}
+                        <div className="absolute -top-4 -left-2 text-6xl text-blue-100 font-serif">"</div>
+                        
+                        {/* 후기 텍스트 */}
+                        <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium pl-8 pr-4 relative">
+                          {TESTIMONIALS[currentSlide].content}
+                        </blockquote>
+                        
+                        {/* 하단 라인 */}
+                        <div className="mt-8 pt-6 border-t border-gray-200">
+                          <div className="flex items-center justify-between">
+                            <div className="text-sm text-gray-500">
+                              {TESTIMONIALS[currentSlide].customerName}
+                            </div>
+                            <div className="flex items-center space-x-2 text-blue-600">
+                              <Award className="w-4 h-4" />
+                              <span className="text-sm font-medium">검증된 파트너</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            {/* Premium 네비게이션 버튼 */}
+            {/* 세련된 네비게이션 버튼 - 터치 최적화 */}
             <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
               <motion.button
                 onClick={prevSlide}
-                className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 pointer-events-auto premium-shadow-glow"
-                whileHover={{ scale: 1.1, x: -5 }}
-                whileTap={{ scale: 0.95 }}
+                className="w-14 h-14 min-w-[48px] min-h-[48px] bg-white shadow-lg rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-all duration-300 pointer-events-auto border border-gray-200 touch-manipulation"
+                whileHover={{ scale: 1.1, x: -3 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="이전 후기"
               >
                 <ChevronLeft className="w-6 h-6" />
               </motion.button>
               
               <motion.button
                 onClick={nextSlide}
-                className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 pointer-events-auto premium-shadow-glow"
-                whileHover={{ scale: 1.1, x: 5 }}
-                whileTap={{ scale: 0.95 }}
+                className="w-14 h-14 min-w-[48px] min-h-[48px] bg-white shadow-lg rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-all duration-300 pointer-events-auto border border-gray-200 touch-manipulation"
+                whileHover={{ scale: 1.1, x: 3 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="다음 후기"
               >
                 <ChevronRight className="w-6 h-6" />
               </motion.button>
             </div>
 
-            {/* Premium 슬라이드 인디케이터 */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
-              {TESTIMONIALS.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'w-12 h-3 bg-white rounded-full'
-                      : 'w-3 h-3 bg-white/40 rounded-full hover:bg-white/60'
-                  }`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
-              ))}
+            {/* 슬라이드 인디케이터 - 터치 최적화 */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+              <div className="flex space-x-3">
+                {TESTIMONIALS.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`transition-all duration-300 rounded-full min-w-[32px] min-h-[32px] p-1 touch-manipulation ${
+                      index === currentSlide
+                        ? 'w-10 h-4 bg-blue-600'
+                        : 'w-4 h-4 bg-gray-300 hover:bg-gray-400 active:bg-gray-500'
+                    }`}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                  />
+                ))}
+              </div>
             </div>
           </PremiumCard>
         </motion.div>
@@ -405,7 +415,7 @@ const TestimonialsSection: React.FC = () => {
                   {stat.value}
                 </motion.div>
                 
-                <p className="text-gray-600 font-medium text-lg font-body">
+                <p className="text-gray-900 font-medium text-lg font-body">
                   {stat.label}
                 </p>
               </PremiumCard>

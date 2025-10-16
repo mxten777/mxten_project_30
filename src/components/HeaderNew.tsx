@@ -77,7 +77,8 @@ const HeaderNew: React.FC = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <motion.div 
+                <motion.a
+                  href={`tel:${CONTACT_INFO.phone}`}
                   className="flex items-center space-x-2 text-blue-200 group cursor-pointer hover:text-white transition-all duration-300"
                   variants={{
                     hidden: { opacity: 0, x: -20 },
@@ -89,8 +90,9 @@ const HeaderNew: React.FC = () => {
                   <span className={`font-medium tracking-wide ${isMobile ? 'hidden' : 'inline'}`}>
                     {CONTACT_INFO.phone}
                   </span>
-                </motion.div>
-                <motion.div 
+                </motion.a>
+                <motion.a
+                  href={`mailto:${CONTACT_INFO.emailDetail.primary}`}
                   className="flex items-center space-x-2 text-blue-200 group cursor-pointer hover:text-white transition-all duration-300"
                   variants={{
                     hidden: { opacity: 0, x: -20 },
@@ -100,9 +102,9 @@ const HeaderNew: React.FC = () => {
                 >
                   <Mail className="w-4 h-4 transition-transform group-hover:rotate-12" />
                   <span className={`font-medium tracking-wide ${isTablet ? 'truncate' : 'inline'}`}>
-                    {CONTACT_INFO.email}
+                    {CONTACT_INFO.emailDetail.primary}
                   </span>
-                </motion.div>
+                </motion.a>
                 <motion.div 
                   className="flex items-center space-x-2 text-blue-200"
                   variants={{
@@ -122,7 +124,7 @@ const HeaderNew: React.FC = () => {
               >
                 <div className="flex items-center space-x-2 text-yellow-200">
                   <Sparkles className="w-4 h-4" />
-                  <span className="font-semibold">ABB 공식 파트너 30년+ 경험</span>
+                  <span className="font-semibold whitespace-nowrap">ABB 파트너 30년+</span>
                 </div>
                 <PremiumButton
                   variant="ghost"
@@ -143,7 +145,7 @@ const HeaderNew: React.FC = () => {
       <motion.div 
         className={`backdrop-blur-xl transition-all duration-500 relative ${
           isScrolled 
-            ? 'fixed top-0 left-0 right-0 z-50 premium-shadow-glow border-b premium-border-primary/20 bg-white/95' 
+            ? 'fixed top-0 left-0 right-0 z-50 shadow-lg border-b border-blue-200/20 bg-white/95' 
             : 'relative bg-white/98'
         }`}
         initial={{ y: -100, opacity: 0 }}
@@ -152,7 +154,7 @@ const HeaderNew: React.FC = () => {
       >
         {/* 헤더 배경 강화 */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/98 to-white/95 backdrop-blur-xl"></div>
-        <div className="absolute inset-0 premium-shadow-glow opacity-50"></div>
+        <div className="absolute inset-0 shadow-lg opacity-50"></div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200/50 to-transparent"></div>
         <div className="container-custom relative z-10">
           <div className="flex items-center justify-between py-5">
@@ -162,10 +164,11 @@ const HeaderNew: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex-shrink-0"
             >
-              <Link to="/" className="flex items-center space-x-4 group">
+              <Link to="/" className="flex items-center space-x-3 group">
                 <motion.div 
-                  className="relative w-14 h-14 premium-gradient-primary rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 premium-shadow-glow"
+                  className="relative w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg"
                   whileHover={{ 
                     scale: 1.1, 
                     rotate: 5,
@@ -173,7 +176,7 @@ const HeaderNew: React.FC = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="absolute inset-0 premium-gradient-primary rounded-2xl opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl opacity-80"></div>
                   <span className="text-white font-bold text-2xl relative z-10 tracking-tight">MS</span>
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-white/20 to-transparent"></div>
                 </motion.div>
@@ -189,7 +192,7 @@ const HeaderNew: React.FC = () => {
                     만송시스템
                   </motion.h1>
                   <motion.p 
-                    className="text-sm text-gray-600 font-medium tracking-wide hidden sm:block font-body"
+                    className="text-sm text-gray-800 font-medium tracking-wide hidden sm:block font-body"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -204,9 +207,38 @@ const HeaderNew: React.FC = () => {
               </Link>
             </motion.div>
 
+            {/* Premium 연락처 정보 (데스크톱 전용) */}
+            {isDesktop && (
+              <motion.div 
+                className="flex items-center space-x-3 flex-shrink-0"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <motion.a
+                  href={`tel:${CONTACT_INFO.phone}`}
+                  className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Phone className="w-3.5 h-3.5 transition-transform group-hover:rotate-12" />
+                  <span className="font-semibold text-xs whitespace-nowrap">{CONTACT_INFO.phone}</span>
+                </motion.a>
+                <motion.a
+                  href={`mailto:${CONTACT_INFO.emailDetail.primary}`}
+                  className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-green-50 to-blue-50 text-green-700 hover:from-green-100 hover:to-blue-100 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Mail className="w-3.5 h-3.5 transition-transform group-hover:rotate-12" />
+                  <span className="font-semibold text-xs whitespace-nowrap">메일 상담</span>
+                </motion.a>
+              </motion.div>
+            )}
+
             {/* Premium 데스크톱 네비게이션 */}
             <motion.nav 
-              className="hidden lg:flex items-center space-x-2"
+              className="hidden lg:flex items-center space-x-1 flex-1 justify-center"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -215,7 +247,7 @@ const HeaderNew: React.FC = () => {
                 <motion.button
                   key={item.label}
                   onClick={() => handleNavClick(item)}
-                  className="relative px-4 py-2 text-gray-700 hover:text-blue-700 font-semibold transition-all duration-300 group rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 font-heading"
+                  className="relative px-3 py-2 text-gray-700 hover:text-blue-700 font-semibold transition-all duration-300 group rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 font-heading text-sm whitespace-nowrap"
                   whileHover={{ 
                     scale: 1.05,
                     y: -2
@@ -238,7 +270,7 @@ const HeaderNew: React.FC = () => {
                   
                   {/* Premium hover effect */}
                   <motion.div
-                    className="absolute inset-0 premium-gradient-primary-light opacity-0 group-hover:opacity-20 rounded-xl"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400/50 to-purple-500/50 opacity-0 group-hover:opacity-20 rounded-xl"
                     initial={false}
                     whileHover={{ 
                       opacity: 0.2,
@@ -249,7 +281,7 @@ const HeaderNew: React.FC = () => {
                   
                   {/* Premium underline */}
                   <motion.div
-                    className="absolute -bottom-1 left-1/2 w-0 h-1 premium-gradient-primary rounded-full"
+                    className="absolute -bottom-1 left-1/2 w-0 h-1 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full"
                     whileHover={{ 
                       width: "80%",
                       x: "-50%"
@@ -278,27 +310,27 @@ const HeaderNew: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="ml-6"
+                className="ml-3 flex-shrink-0"
               >
                 <PremiumButton
                   variant="primary"
                   size="sm"
                   onClick={() => scrollToElement('contact')}
-                  className="premium-shadow-glow"
-                  icon={<Sparkles className="w-4 h-4" />}
+                  className="shadow-lg text-sm px-4 py-2 whitespace-nowrap"
+                  icon={<Sparkles className="w-3.5 h-3.5" />}
                 >
                   무료 상담
                 </PremiumButton>
               </motion.div>
             </motion.nav>
 
-            {/* Premium 모바일 메뉴 버튼 */}
+            {/* Premium 모바일 메뉴 버튼 - 터치 최적화 */}
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative p-3 premium-text-secondary hover:premium-text-primary focus:outline-none rounded-xl premium-glass-subtle hover:premium-shadow-glow transition-all duration-300"
+              className="lg:hidden relative p-4 min-w-[48px] min-h-[48px] text-gray-700 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-xl bg-white/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300 active:bg-blue-50"
               aria-label="메뉴 열기/닫기"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, rotate: -180 }}
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -315,7 +347,7 @@ const HeaderNew: React.FC = () => {
               </motion.div>
               
               {/* Premium glow effect */}
-              <div className="absolute inset-0 premium-gradient-primary opacity-0 hover:opacity-10 rounded-xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-0 hover:opacity-10 rounded-xl transition-opacity duration-300"></div>
             </motion.button>
           </div>
         </div>
@@ -345,40 +377,40 @@ const HeaderNew: React.FC = () => {
                 damping: 30,
                 opacity: { duration: 0.2 }
               }}
-              className="fixed top-0 right-0 h-full w-80 premium-glass backdrop-blur-xl border-l premium-border-primary/20 z-50 lg:hidden overflow-y-auto premium-shadow-glow"
+              className="fixed top-0 right-0 h-full w-80 bg-white/95 backdrop-blur-xl border-l border-blue-200/20 z-50 lg:hidden overflow-y-auto shadow-xl"
             >
               {/* Premium background gradient */}
-              <div className="absolute inset-0 premium-gradient-primary-light opacity-5"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-purple-500/10 opacity-50"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95"></div>
               
               <div className="relative p-6">
                 {/* Premium 모바일 헤더 */}
                 <motion.div 
-                  className="flex items-center justify-between pb-6 border-b premium-border-primary/10"
+                  className="flex items-center justify-between pb-6 border-b border-blue-200/20"
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
                 >
                   <div className="flex items-center space-x-3">
                     <motion.div 
-                      className="w-12 h-12 premium-gradient-primary rounded-2xl flex items-center justify-center premium-shadow-glow"
+                      className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 400 }}
                     >
                       <span className="text-white font-bold text-lg">MS</span>
                     </motion.div>
                     <div>
-                      <h2 className="text-xl font-black premium-text-primary">만송시스템</h2>
-                      <p className="text-xs premium-text-secondary font-medium">Premium Factory Automation</p>
+                      <h2 className="text-xl font-black text-gray-900">만송시스템</h2>
+                      <p className="text-xs text-gray-700 font-medium">Premium Factory Automation</p>
                     </div>
                   </div>
                   <motion.button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 rounded-xl premium-glass-subtle hover:premium-shadow-glow transition-all duration-300"
+                    className="p-2 rounded-xl bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <X className="w-5 h-5 premium-text-secondary" />
+                    <X className="w-5 h-5 text-gray-700" />
                   </motion.button>
                 </motion.div>
 
@@ -397,7 +429,7 @@ const HeaderNew: React.FC = () => {
                         handleNavClick(item);
                         setIsMobileMenuOpen(false);
                       }}
-                      className="w-full text-left px-5 py-4 rounded-xl premium-text-secondary hover:premium-text-primary premium-glass-subtle hover:premium-shadow-glow transition-all duration-300 font-semibold tracking-wide group relative overflow-hidden"
+                      className="w-full text-left px-6 py-5 min-h-[56px] rounded-xl text-gray-700 hover:text-blue-700 active:text-blue-800 bg-white/90 backdrop-blur-sm hover:shadow-lg active:bg-blue-50 transition-all duration-300 font-semibold tracking-wide group relative overflow-hidden touch-manipulation"
                       initial={{ x: 50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ 
@@ -406,12 +438,12 @@ const HeaderNew: React.FC = () => {
                         stiffness: 300
                       }}
                       whileHover={{ x: 10, scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileTap={{ scale: 0.96 }}
                     >
                       <div className="relative z-10 flex items-center justify-between">
                         <span>{item.label}</span>
                         <motion.div
-                          className="w-2 h-2 premium-gradient-primary rounded-full opacity-0 group-hover:opacity-100"
+                          className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full opacity-0 group-hover:opacity-100"
                           initial={false}
                           animate={{ scale: [0, 1, 0] }}
                           transition={{ 
@@ -424,7 +456,7 @@ const HeaderNew: React.FC = () => {
                       
                       {/* Premium background effect */}
                       <motion.div
-                        className="absolute inset-0 premium-gradient-primary-light opacity-0 group-hover:opacity-10 rounded-xl"
+                        className="absolute inset-0 bg-gradient-to-r from-blue-400/50 to-purple-500/50 opacity-0 group-hover:opacity-10 rounded-xl"
                         initial={false}
                         whileHover={{ 
                           opacity: 0.1,
@@ -435,7 +467,7 @@ const HeaderNew: React.FC = () => {
                       
                       {/* Side accent */}
                       <motion.div
-                        className="absolute left-0 top-1/2 w-1 h-0 premium-gradient-primary rounded-r-full"
+                        className="absolute left-0 top-1/2 w-1 h-0 bg-gradient-to-b from-blue-600 to-purple-700 rounded-r-full"
                         whileHover={{ 
                           height: "60%",
                           y: "-50%"
@@ -446,9 +478,46 @@ const HeaderNew: React.FC = () => {
                   ))}
                 </motion.nav>
 
+                {/* Premium 모바일 연락처 정보 */}
+                <motion.div 
+                  className="py-6 border-t border-blue-200/20"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">연락처 정보</h3>
+                  <div className="space-y-3">
+                    <motion.a
+                      href={`tel:${CONTACT_INFO.phone}`}
+                      className="flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 group"
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Phone className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                      <div>
+                        <div className="font-semibold">{CONTACT_INFO.phone}</div>
+                        <div className="text-xs text-blue-600">전화 상담 (터치하여 통화)</div>
+                      </div>
+                    </motion.a>
+                    
+                    <motion.a
+                      href={`mailto:${CONTACT_INFO.emailDetail.primary}`}
+                      className="flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-green-50 to-blue-50 text-green-700 hover:from-green-100 hover:to-blue-100 transition-all duration-300 group"
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Mail className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                      <div>
+                        <div className="font-semibold text-sm">{CONTACT_INFO.emailDetail.primary}</div>
+                        <div className="text-xs text-green-600">이메일 상담 (터치하여 메일 작성)</div>
+                      </div>
+                    </motion.a>
+                  </div>
+                </motion.div>
+
                 {/* Premium 모바일 CTA 버튼 */}
                 <motion.div 
-                  className="space-y-4 pt-8 border-t premium-border-primary/10"
+                  className="space-y-4 pt-6 border-t border-blue-200/20"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
@@ -457,10 +526,10 @@ const HeaderNew: React.FC = () => {
                     variant="outline"
                     size="lg"
                     onClick={() => {
-                      navigate('/order');
+                      scrollToElement('contact');
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full premium-shadow-glow"
+                    className="w-full shadow-lg"
                     icon={<Mail className="w-5 h-5" />}
                   >
                     견적 문의
@@ -473,7 +542,7 @@ const HeaderNew: React.FC = () => {
                       scrollToElement('contact');
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full premium-shadow-glow"
+                    className="w-full shadow-lg"
                     icon={<Sparkles className="w-5 h-5" />}
                   >
                     무료 상담 신청
@@ -488,37 +557,37 @@ const HeaderNew: React.FC = () => {
                   transition={{ delay: 1 }}
                 >
                   <motion.div 
-                    className="flex items-center space-x-4 p-3 premium-glass-subtle rounded-xl group hover:premium-shadow-glow transition-all duration-300"
+                    className="flex items-center space-x-4 p-3 bg-white/80 rounded-xl group hover:shadow-lg transition-all duration-300"
                     whileHover={{ scale: 1.02, x: 5 }}
                   >
-                    <div className="w-8 h-8 premium-gradient-primary rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
                       <Phone className="w-4 h-4 text-white" />
                     </div>
-                    <span className="premium-text-secondary font-medium text-sm group-hover:premium-text-primary transition-colors">
+                    <span className="text-gray-700 font-medium text-sm group-hover:text-blue-700 transition-colors">
                       {CONTACT_INFO.phone}
                     </span>
                   </motion.div>
                   
                   <motion.div 
-                    className="flex items-center space-x-4 p-3 premium-glass-subtle rounded-xl group hover:premium-shadow-glow transition-all duration-300"
+                    className="flex items-center space-x-4 p-3 bg-white/80 rounded-xl group hover:shadow-lg transition-all duration-300"
                     whileHover={{ scale: 1.02, x: 5 }}
                   >
-                    <div className="w-8 h-8 premium-gradient-primary rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
                       <Mail className="w-4 h-4 text-white" />
                     </div>
-                    <span className="premium-text-secondary font-medium text-sm group-hover:premium-text-primary transition-colors">
+                    <span className="text-gray-700 font-medium text-sm group-hover:text-blue-700 transition-colors">
                       {CONTACT_INFO.email}
                     </span>
                   </motion.div>
                   
                   <motion.div 
-                    className="flex items-center space-x-4 p-3 premium-glass-subtle rounded-xl group hover:premium-shadow-glow transition-all duration-300"
+                    className="flex items-center space-x-4 p-3 bg-white/80 rounded-xl group hover:shadow-lg transition-all duration-300"
                     whileHover={{ scale: 1.02, x: 5 }}
                   >
-                    <div className="w-8 h-8 premium-gradient-primary rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
                       <Clock className="w-4 h-4 text-white" />
                     </div>
-                    <span className="premium-text-secondary font-medium text-sm group-hover:premium-text-primary transition-colors">
+                    <span className="text-gray-700 font-medium text-sm group-hover:text-blue-700 transition-colors">
                       {CONTACT_INFO.workingHours}
                     </span>
                   </motion.div>
@@ -531,7 +600,7 @@ const HeaderNew: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2, duration: 0.6 }}
                 >
-                  <div className="flex items-center space-x-2 premium-text-accent text-sm font-semibold">
+                  <div className="flex items-center space-x-2 text-yellow-600 text-sm font-semibold">
                     <Award className="w-4 h-4" />
                     <span>30년+ 전문 경험</span>
                     <Sparkles className="w-4 h-4" />

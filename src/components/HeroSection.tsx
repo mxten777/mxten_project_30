@@ -377,7 +377,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className={`text-gray-600 font-body mb-10 max-w-4xl mx-auto leading-relaxed relative ${
+            className={`text-gray-900 font-body mb-10 max-w-4xl mx-auto leading-relaxed relative ${
               isMobile ? 'text-xl px-4' : isTablet ? 'text-2xl' : 'text-3xl sm:text-4xl'
             }`}
           >
@@ -389,7 +389,7 @@ const HeroSection: React.FC = () => {
                 textShadow: '0 1px 3px rgba(255,255,255,0.8)',
                 letterSpacing: '0.01em'
               }}>
-                현장 모니터링부터 관제 시스템까지,
+                화학공장 통합관제부터 플랜트 자동화까지,
               </div>
               <div className="flex items-center justify-center space-x-4">
                 <Sparkles className="w-7 h-7 text-yellow-500 drop-shadow-lg" />
@@ -433,13 +433,15 @@ const HeroSection: React.FC = () => {
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92 }}
             >
               <PremiumButton
                 variant="primary"
                 size="xl"
                 onClick={() => navigate('/order')}
-                className="premium-shadow-glow px-12 py-5 text-xl font-bold font-heading tracking-wide"
+                className={`premium-shadow-glow font-bold font-heading tracking-wide touch-manipulation ${
+                  isMobile ? 'px-8 py-4 text-lg min-h-[56px] w-full' : 'px-12 py-5 text-xl'
+                }`}
                 icon={<ArrowRight className="w-6 h-6" />}
               >
                 무료 상담 신청하기
@@ -448,13 +450,15 @@ const HeroSection: React.FC = () => {
             
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92 }}
             >
               <PremiumButton
                 variant="outline"
                 size="xl"
                 onClick={() => scrollToElement('services')}
-                className="px-12 py-5 text-xl font-semibold font-heading tracking-wide"
+                className={`font-semibold font-heading tracking-wide touch-manipulation ${
+                  isMobile ? 'px-8 py-4 text-lg min-h-[56px] w-full' : 'px-12 py-5 text-xl'
+                }`}
                 icon={<Sparkles className="w-6 h-6" />}
               >
                 서비스 둘러보기
@@ -551,7 +555,7 @@ const HeroSection: React.FC = () => {
                     {stat.number}
                   </motion.div>
                   
-                  <div className="text-gray-600 font-bold text-lg tracking-wide relative z-10 font-heading">
+                  <div className="text-gray-900 font-bold text-lg tracking-wide relative z-10 font-heading">
                     {stat.label}
                   </div>
                   

@@ -24,6 +24,10 @@ const ServicesSection: React.FC = () => {
 
   // 아이콘 매핑
   const iconMap = {
+    Integration: Settings,
+    Database: Monitor,
+    Consulting: Command,
+    Maintenance: GraduationCap,
     Settings,
     Monitor,
     Command,
@@ -97,13 +101,13 @@ const ServicesSection: React.FC = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-body"
+            className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-body"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
             style={{ letterSpacing: '0.01em' }}
           >
-            <span className="font-medium">설계부터 구축, 운영, 유지보수까지</span><br />
+            <span className="font-semibold text-gray-900">설계부터 구축, 운영, 유지보수까지</span><br />
             <span className="font-bold text-primary-700">원스톱 서비스로 고객의 성공을 지원합니다</span>
           </motion.p>
         </motion.div>
@@ -111,7 +115,7 @@ const ServicesSection: React.FC = () => {
         {/* Premium 서비스 그리드 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
           {SERVICES.map((service, index) => {
-            const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+            const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
             
             return (
               <motion.div
@@ -197,7 +201,7 @@ const ServicesSection: React.FC = () => {
 
                   {/* 서비스 설명 */}
                   <motion.p 
-                    className="text-gray-600 leading-relaxed mb-8 text-lg font-body relative z-10"
+                    className="text-gray-900 leading-relaxed mb-8 text-lg font-body relative z-10 font-medium"
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ delay: 1.2 + index * 0.2 }}
@@ -235,7 +239,7 @@ const ServicesSection: React.FC = () => {
                         >
                           <CheckCircle className="w-4 h-4 text-white" />
                         </motion.div>
-                        <span className="text-gray-700 font-medium text-lg font-body group-hover/item:text-primary-700 transition-colors duration-300">
+                        <span className="text-gray-900 font-semibold text-lg font-body group-hover/item:text-primary-700 transition-colors duration-300">
                           {feature}
                         </span>
                       </motion.li>
@@ -276,7 +280,7 @@ const ServicesSection: React.FC = () => {
           className="relative"
         >
           <PremiumCard 
-            className="premium-gradient-primary text-white overflow-hidden relative"
+            className="bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden relative"
             padding="xl"
           >
             {/* 배경 장식 */}
@@ -285,16 +289,17 @@ const ServicesSection: React.FC = () => {
             
             <div className="relative z-10">
               <motion.h3 
-                className="text-4xl font-bold text-center mb-16 font-heading"
+                className="text-4xl font-bold text-center mb-16 font-heading text-white"
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 2.2 }}
+                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}
               >
-                <Sparkles className="inline-block w-10 h-10 mr-4 mb-2" />
+                <Sparkles className="inline-block w-10 h-10 mr-4 mb-2 text-yellow-300" />
                 서비스 진행 프로세스
               </motion.h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 relative">
                 {[
                   { step: '01', title: '상담', desc: '요구사항 분석 및 현장 조사', color: 'from-blue-400 to-blue-600' },
                   { step: '02', title: '설계', desc: '맞춤형 시스템 설계 및 제안', color: 'from-green-400 to-green-600' },
@@ -319,7 +324,7 @@ const ServicesSection: React.FC = () => {
                     className="text-center group relative"
                   >
                     {/* 프로세스 카드 */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 premium-shadow-glow hover:bg-white/15 transition-all duration-300">
+                    <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 premium-shadow-glow hover:bg-slate-800/95 transition-all duration-300 border border-white/10">
                       <motion.div 
                         className={`w-20 h-20 bg-gradient-to-br ${process.color} rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow-glow`}
                         animate={{ 
@@ -335,8 +340,8 @@ const ServicesSection: React.FC = () => {
                         <span className="text-white font-black text-xl font-display">{process.step}</span>
                       </motion.div>
                       
-                      <h4 className="text-2xl font-bold mb-4 font-heading">{process.title}</h4>
-                      <p className="text-white/80 leading-relaxed font-body">{process.desc}</p>
+                      <h4 className="text-2xl font-bold mb-4 font-heading text-yellow-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{process.title}</h4>
+                      <p className="text-gray-100 leading-relaxed font-body font-semibold text-sm" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>{process.desc}</p>
                     </div>
                     
                     {/* 연결 화살표 (마지막 제외) */}

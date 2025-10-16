@@ -4,7 +4,7 @@ import React from 'react';
 // 컴포넌트 임포트 (나중에 생성될 예정)
 import HeaderNew from '../components/HeaderNew';
 import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
+import AboutSection from '../components/AboutSectionNew';
 import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FooterNew from '../components/FooterNew';
@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
       <HeaderNew />
       
       {/* 메인 콘텐츠 */}
-      <main>
+      <main id="main-content">
         {/* 히어로 섹션 */}
         <HeroSection />
         
