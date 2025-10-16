@@ -156,32 +156,42 @@ const AboutSection: React.FC = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-5xl lg:text-6xl font-black text-gray-900 mb-8 font-display leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ letterSpacing: '-0.02em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 700,
+              letterSpacing: '-0.02em'
+            }}
           >
-            <span className="block">화학공장 전문 30년</span>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+            <span className="block text-gray-900">화학공장 전문 30년</span>
+            <span className="block text-blue-700 mt-1 sm:mt-2">
               ABB 파트너사의 기술력
             </span>
           </motion.h2>
           
           <motion.p 
-            className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-body"
+            className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ letterSpacing: '0.01em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 500,
+              letterSpacing: '0.01em'
+            }}
           >
-            <span className="font-medium text-gray-900">{COMPANY_INFO.description}</span>을 통해<br />
+            <span className="font-semibold text-gray-900">{COMPANY_INFO.description}</span>을 통해
+            <br className="hidden sm:block" />
+            <span className="sm:ml-0"> </span>
             <span className="font-bold text-blue-700">고객의 성공을 함께 만들어갑니다</span>
           </motion.p>
         </motion.div>
 
         {/* Premium 3카드 레이아웃 */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 mb-16 lg:mb-20 px-4 sm:px-0">
           {aboutCards.map((card, index) => (
             <motion.div
               key={card.title}
@@ -200,12 +210,11 @@ const AboutSection: React.FC = () => {
               className="group"
             >
               <PremiumCard 
-                className="h-full premium-shadow-glow hover:premium-shadow-glow-intense transition-all duration-500 relative overflow-hidden bg-white"
+                className="h-full bg-white/95 backdrop-blur-sm border border-white/20 hover:bg-white transition-all duration-300 relative"
                 padding="xl"
               >
-                {/* Premium 배경 효과 */}
-                <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${card.color} opacity-10 rounded-bl-full blur-xl`}></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/90 to-white/95 opacity-100"></div>
+                {/* 배경 효과 */}
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.color} opacity-5 rounded-bl-full blur-xl`}></div>
                 
                 {/* 아이콘 */}
                 <motion.div 
@@ -217,12 +226,15 @@ const AboutSection: React.FC = () => {
                 </motion.div>
 
                 {/* 제목 */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 font-heading">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4" style={{ 
+                  fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                  fontWeight: 700
+                }}>
                   {card.title}
                 </h3>
 
                 {/* 아이템 리스트 */}
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {card.items.map((item, itemIndex) => (
                     <motion.li
                       key={itemIndex}
@@ -239,7 +251,10 @@ const AboutSection: React.FC = () => {
                       <div 
                         className={`w-2 h-2 bg-gradient-to-r ${card.color} rounded-full flex-shrink-0`}
                       />
-                      <span className="font-medium font-body text-gray-900">
+                      <span className="font-medium text-gray-800 text-sm sm:text-base" style={{ 
+                        fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                        fontWeight: 500
+                      }}>
                         {item}
                       </span>
                     </motion.li>

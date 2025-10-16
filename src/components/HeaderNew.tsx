@@ -168,7 +168,7 @@ const HeaderNew: React.FC = () => {
             >
               <Link to="/" className="flex items-center space-x-3 group">
                 <motion.div 
-                  className="relative w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg"
+                  className={`relative ${isMobile ? 'w-12 h-12' : 'w-14 h-14'} bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg`}
                   whileHover={{ 
                     scale: 1.1, 
                     rotate: 5,
@@ -177,27 +177,30 @@ const HeaderNew: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl opacity-80"></div>
-                  <span className="text-white font-bold text-2xl relative z-10 tracking-tight">MS</span>
+                  <span className={`text-white font-bold ${isMobile ? 'text-xl' : 'text-2xl'} relative z-10 tracking-tight`}>MS</span>
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-white/20 to-transparent"></div>
                 </motion.div>
                 <div className="space-y-1">
                   <motion.h1 
-                    className="text-3xl font-black text-gray-900 group-hover:text-blue-700 transition-all duration-300 tracking-tight font-display"
+                    className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-gray-900 group-hover:text-blue-700 transition-all duration-300`}
                     whileHover={{ scale: 1.02 }}
                     style={{ 
-                      textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 2px 8px rgba(0,0,0,0.1)',
+                      fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif",
+                      fontWeight: 700,
                       letterSpacing: '-0.02em'
                     }}
                   >
                     만송시스템
                   </motion.h1>
                   <motion.p 
-                    className="text-sm text-gray-800 font-medium tracking-wide hidden sm:block font-body"
+                    className="text-xs sm:text-sm text-gray-700 font-medium hidden sm:block"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     style={{ 
-                      textShadow: '0 1px 2px rgba(255,255,255,0.8)',
+                      fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif",
+                      fontWeight: 500,
+                      textShadow: 'none',
                       letterSpacing: '0.05em'
                     }}
                   >
@@ -247,7 +250,7 @@ const HeaderNew: React.FC = () => {
                 <motion.button
                   key={item.label}
                   onClick={() => handleNavClick(item)}
-                  className="relative px-3 py-2 text-gray-700 hover:text-blue-700 font-semibold transition-all duration-300 group rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 font-heading text-sm whitespace-nowrap"
+                  className="relative px-3 py-2 text-gray-800 hover:text-blue-700 font-medium transition-all duration-300 group rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 text-sm whitespace-nowrap"
                   whileHover={{ 
                     scale: 1.05,
                     y: -2
@@ -262,8 +265,9 @@ const HeaderNew: React.FC = () => {
                     damping: 30
                   }}
                   style={{ 
-                    textShadow: '0 1px 2px rgba(255,255,255,0.8)',
-                    letterSpacing: '0.02em'
+                    fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                    fontWeight: 600,
+                    letterSpacing: '-0.01em'
                   }}
                 >
                   <span className="relative z-10">{item.label}</span>

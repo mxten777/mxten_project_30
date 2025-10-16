@@ -88,32 +88,42 @@ const ServicesSection: React.FC = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-5xl lg:text-6xl font-black text-gray-900 mb-8 font-display leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight px-4 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ letterSpacing: '-0.02em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 700,
+              letterSpacing: '-0.02em'
+            }}
           >
-            <span className="block">전문화된 서비스로</span>
-            <span className="bg-gradient-to-r from-primary-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block text-gray-900">전문화된 서비스로</span>
+            <span className="block text-blue-700 mt-1 sm:mt-2">
               완벽한 솔루션 제공
             </span>
           </motion.h2>
           
           <motion.p 
-            className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-body"
+            className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ letterSpacing: '0.01em' }}
+            style={{ 
+              fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+              fontWeight: 500,
+              letterSpacing: '0.01em'
+            }}
           >
-            <span className="font-semibold text-gray-900">설계부터 구축, 운영, 유지보수까지</span><br />
-            <span className="font-bold text-primary-700">원스톱 서비스로 고객의 성공을 지원합니다</span>
+            <span className="font-semibold text-gray-900">설계부터 구축, 운영, 유지보수까지</span>
+            <br className="hidden sm:block" />
+            <span className="sm:ml-0"> </span>
+            <span className="font-bold text-blue-700">원스톱 서비스로 고객의 성공을 지원합니다</span>
           </motion.p>
         </motion.div>
 
         {/* Premium 서비스 그리드 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-16 lg:mb-20 px-4 sm:px-0">
           {SERVICES.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
             
@@ -256,17 +266,20 @@ const ServicesSection: React.FC = () => {
             
             <div className="relative z-10">
               <motion.h3 
-                className="text-4xl font-bold text-center mb-16 font-heading text-white"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 lg:mb-16 text-white px-4 sm:px-0"
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 2.2 }}
-                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}
+                style={{ 
+                  fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                  fontWeight: 700
+                }}
               >
-                <Sparkles className="inline-block w-10 h-10 mr-4 mb-2 text-yellow-300" />
+                <Sparkles className="inline-block w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mr-2 sm:mr-4 mb-1 sm:mb-2 text-yellow-300" />
                 서비스 진행 프로세스
               </motion.h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 relative px-4 sm:px-0">
                 {[
                   { step: '01', title: '상담', desc: '요구사항 분석 및 현장 조사', color: 'from-blue-400 to-blue-600' },
                   { step: '02', title: '설계', desc: '맞춤형 시스템 설계 및 제안', color: 'from-green-400 to-green-600' },
@@ -291,15 +304,21 @@ const ServicesSection: React.FC = () => {
                     className="text-center group relative"
                   >
                     {/* 프로세스 카드 */}
-                    <div className="bg-slate-800/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-slate-800/95 transition-colors duration-300">
+                    <div className="bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 hover:bg-slate-800/95 transition-colors duration-300">
                       <div 
-                        className={`w-16 h-16 bg-gradient-to-br ${process.color} rounded-xl flex items-center justify-center mx-auto mb-4`}
+                        className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${process.color} rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4`}
                       >
-                        <span className="text-white font-bold text-lg font-display">{process.step}</span>
+                        <span className="text-white font-bold text-base sm:text-lg">{process.step}</span>
                       </div>
                       
-                      <h4 className="text-xl font-bold mb-3 font-heading text-white">{process.title}</h4>
-                      <p className="text-gray-300 leading-relaxed font-body text-sm">{process.desc}</p>
+                      <h4 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white" style={{
+                        fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                        fontWeight: 700
+                      }}>{process.title}</h4>
+                      <p className="text-gray-300 leading-relaxed text-xs sm:text-sm" style={{
+                        fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+                        fontWeight: 500
+                      }}>{process.desc}</p>
                     </div>
                     
                     {/* 연결 화살표 (마지막 제외) */}
