@@ -145,7 +145,7 @@ const ServicesSection: React.FC = () => {
                 className="group"
               >
                 <PremiumCard 
-                  className="h-full premium-shadow-glow hover:premium-shadow-glow-intense transition-all duration-500 relative overflow-hidden"
+                  className="h-full bg-white border-2 border-gray-200/60 shadow-lg hover:shadow-xl hover:border-blue-300/60 transition-all duration-500 relative overflow-hidden"
                   padding="xl"
                 >
                   {/* Premium 배경 효과 */}

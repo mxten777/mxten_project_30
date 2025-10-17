@@ -395,7 +395,7 @@ const TestimonialsSection: React.FC = () => {
               }}
               whileHover={{ y: -10, scale: 1.05 }}
             >
-              <PremiumCard className="text-center h-full bg-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/95 transition-all duration-300">
+              <PremiumCard className="text-center h-full bg-white border-2 border-gray-200/50 shadow-lg hover:shadow-xl hover:border-blue-300/50 transition-all duration-300">
                 <div 
                   className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mx-auto mb-4`}
                 >

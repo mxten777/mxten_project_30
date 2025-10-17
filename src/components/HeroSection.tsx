@@ -277,7 +277,7 @@ const HeroSection: React.FC = () => {
                 }}
               >
                 <PremiumCard 
-                  className="text-center h-full bg-white/90 backdrop-blur-sm border border-white/20 hover:bg-white/95 transition-all duration-300 group cursor-pointer relative"
+                  className="text-center h-full bg-white border-2 border-gray-200/50 shadow-lg hover:shadow-xl hover:border-blue-300/50 transition-all duration-300 group cursor-pointer relative"
                   padding="lg"
                 >
                   <div className={`${isMobile ? 'w-12 h-12 mb-4' : 'w-16 h-16 mb-6'} mx-auto premium-gradient-primary rounded-2xl flex items-center justify-center relative`}>

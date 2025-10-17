@@ -210,7 +210,7 @@ const AboutSection: React.FC = () => {
               className="group"
             >
               <PremiumCard 
-                className="h-full bg-white/95 backdrop-blur-sm border border-white/20 hover:bg-white transition-all duration-300 relative"
+                className="h-full bg-white border-2 border-gray-200/50 shadow-lg hover:shadow-xl hover:border-blue-300/50 transition-all duration-300 relative"
                 padding="xl"
               >
                 {/* 배경 효과 */}
