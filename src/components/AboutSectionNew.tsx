@@ -163,7 +163,8 @@ const AboutSection: React.FC = () => {
             style={{ 
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
               fontWeight: 700,
-              letterSpacing: '-0.02em'
+              letterSpacing: '-0.02em',
+              wordBreak: 'keep-all'
             }}
           >
             <span className="block text-gray-900">화학공장 전문 30년</span>
@@ -180,12 +181,13 @@ const AboutSection: React.FC = () => {
             style={{ 
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
               fontWeight: 500,
-              letterSpacing: '0.01em'
+              letterSpacing: '0.01em',
+              wordBreak: 'keep-all'
             }}
           >
             <span className="font-semibold text-gray-900">{COMPANY_INFO.description}</span>을 통해
             <br className="hidden sm:block" />
-            <span className="sm:ml-0"> </span>
+            <span className="block sm:inline"> </span>
             <span className="font-bold text-blue-700">고객의 성공을 함께 만들어갑니다</span>
           </motion.p>
         </motion.div>

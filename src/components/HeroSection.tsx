@@ -145,7 +145,8 @@ const HeroSection: React.FC = () => {
             style={{
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
               fontWeight: 700,
-              letterSpacing: '-0.02em'
+              letterSpacing: '-0.02em',
+              wordBreak: 'keep-all'
             }}
           >
             <motion.span 
@@ -176,17 +177,23 @@ const HeroSection: React.FC = () => {
             }`}
             style={{
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-              fontWeight: 500
+              fontWeight: 500,
+              wordBreak: 'keep-all'
             }}
           >
-            <div className="text-center">
-              <span className="font-medium">화학공장 통합관제부터 플랜트 자동화까지,</span>
-              <br className="hidden sm:block" />
-              <span className="sm:ml-1"> </span>
-              <span className="font-bold text-blue-700">만송시스템</span>이 제공하는
-              <br className="block sm:hidden" />
-              <span className="sm:ml-1"> </span>
-              <span className="font-bold text-purple-600">완벽한 솔루션</span>
+            <div className="text-center space-y-2 sm:space-y-0">
+              <div className="font-medium">
+                <span>화학공장 통합관제부터</span>
+                <br className="block sm:hidden" />
+                <span className="block sm:inline"> 플랜트 자동화까지,</span>
+              </div>
+              <div>
+                <span className="font-bold text-blue-700">만송시스템</span>
+                <span>이 제공하는</span>
+                <br className="block sm:hidden" />
+                <span className="block sm:inline"> </span>
+                <span className="font-bold text-purple-600">완벽한 솔루션</span>
+              </div>
             </div>
           </motion.div>
 

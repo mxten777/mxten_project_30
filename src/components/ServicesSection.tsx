@@ -95,7 +95,8 @@ const ServicesSection: React.FC = () => {
             style={{ 
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
               fontWeight: 700,
-              letterSpacing: '-0.02em'
+              letterSpacing: '-0.02em',
+              wordBreak: 'keep-all'
             }}
           >
             <span className="block text-gray-900">전문화된 서비스로</span>

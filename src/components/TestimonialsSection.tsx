@@ -143,7 +143,8 @@ const TestimonialsSection: React.FC = () => {
             style={{ 
               fontFamily: "'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
               fontWeight: 700,
-              letterSpacing: '-0.02em'
+              letterSpacing: '-0.02em',
+              wordBreak: 'keep-all'
             }}
           >
             <span className="block text-gray-900">고객이 직접 말하는</span>
